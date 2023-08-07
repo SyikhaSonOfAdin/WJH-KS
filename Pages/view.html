@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welding Join History</title>
+    <link rel="icon" href="../Assets/Logo_single.png" />
+    <link rel="stylesheet" href="../CSS/output.css" />
+    <link rel="stylesheet" href="../CSS/canvas.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,700&family=Days+One&family=Inter:wght@400;700;800;900&family=Poppins:wght@100;200;300;400;500;700&display=swap"
+        rel="stylesheet" />
+</head>
+
+<body>
+    <div class="w-full h-max flex items-center justify-center shadow-lg">
+        <div class="w-[90%] flex items-center justify-between">
+            <div class="flex items-center">
+                <img src="../Assets/Logo_single.png" alt="Kokoh Semesta" class="w-[50px] h-[54.62px] mx-3 my-4"/>
+                <h1 class="hidden md:block text-[24px] font-extrabold text-gray-800">KOKOH SEMESTA :</h1>
+                <h1 class="text-[14px] md:text-[24px] font-extrabold text-gray-800">HEIN PROJECT</h1>
+            </div>
+            <div class="flex">
+                <a href="./Material-Transaction/receive.php" id="login"
+                    class="<?php echo $display ?> text-xs text-gray-700 uppercase border font-bold mx-3 py-[5px] px-[15px] bg-white hover:bg-neutral-100 rounded">
+                    Material-Transaction
+                </a>
+                <a href="./login.php" id="login"
+                    class="text-xs text-gray-700 uppercase border font-bold mx-3 py-[5px] px-[15px] bg-white hover:bg-neutral-100 rounded">
+                    Login
+                </a>
+            </div>
+        </div>
+    </div>
+    <form id="searchBar" class="my-5 w-[85%]" method="post">
+        <div class="relative mt-2 rounded-md shadow-sm">
+            <input type="search" id="search" name="search"
+                class="block mx-2 w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-400 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-0 focus:ring-inset focus:ring-2 focus:ring-[#2E3192] sm:text-sm sm:leading-6"
+                placeholder="Search by" />
+            <div class="absolute inset-y-0 right-0 flex items-center">
+                <select name="based_on" id="based_on"
+                    class="h-full rounded-md border-0 bg-transparent py-0 pl-2 pr-7 text-gray-500 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm">
+                    <option value="IDENT_CODE">IDENT CODE</option>
+                    <option value="description">Description</option>
+                </select>
+            </div>
+        </div>
+    </form>
+
+    <!-- CONTENT BODY -->
+    <div class="w-[85%] min-h-screen"></div>
+
+    <!-- FOOTER -->
+    <div class="w-full mt-12 flex flex-col items-center justify-center h-[200px] bg-[#2E3192]">
+        <h1 class="text-[8px] md:text-[12px] text-center font-semibold text-white">
+            Copyright © 2023 Syikha Creative Production. All Right Reserved
+        </h1>
+    </div>
+</body>
+
+</html>
