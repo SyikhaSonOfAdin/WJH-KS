@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "tailwindcss": "^3.3.3"
+  },
+  "name": "welding-join-history",
+  "description": "START DATE : 07 AUGUST 2023\r PROJECT NAME : WELDING JOIN HISTORY - KOKOH SEMESTA\r FINISH ESTIMATION : 07 SEPTEMBER 2023\r TECH : HTML, JS, PHP\r FRAMEWORK : -",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SyikhaSonOfAdin/WJH-KS.git"
+  },
+  "author": "Muchamad Syikha Akmal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SyikhaSonOfAdin/WJH-KS/issues"
+  },
+  "homepage": "https://github.com/SyikhaSonOfAdin/WJH-KS#readme"
+}
