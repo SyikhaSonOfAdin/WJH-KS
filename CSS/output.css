@@ -637,6 +637,14 @@ video {
   width: 30px;
 }
 
+.w-\[100px\] {
+  width: 100px;
+}
+
+.w-\[1000px\] {
+  width: 1000px;
+}
+
 .flex-col {
   flex-direction: column;
 }
@@ -689,6 +697,11 @@ video {
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.bg-gray-700 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(55 65 81 / var(--tw-bg-opacity));
 }
 
 .px-\[15px\] {
