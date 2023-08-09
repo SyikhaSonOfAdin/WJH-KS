@@ -1,22 +1,19 @@
+// Model/login.js
 const express = require('express');
-const session = require('express-session');
+const router = express.Router();
 
-const app = express()
+router.post('/login', (req, res) => {
+    const { email, password, remember } = req.body;
 
-app.post('/login', (req, res) => {
-    const { username, password } = req.body;
-
-    if (username === 'user' && password === 'password') {
-        req.session.loggedIn = true;
-        res.redirect('/home');
+    if (email === 'syikhasmart@gmail.com' && password === 'syikhaakmal19') {
+        res.json({
+            login: 'success', 
+        })
     } else {
-        res.redirect('/login'); 
+        res.json({
+            login: 'failed' 
+        })
     }
 });
 
-app.use(session({
-    secret: '0989289310', // Gantilah dengan kunci rahasia Anda
-    resave: false,
-    saveUninitialized: true
-  }));
-  
+module.exports = router;
