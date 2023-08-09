@@ -1,4 +1,6 @@
-const express = require('express')
+const express = require('express');
+const session = require('express-session');
+
 const path = require('path');
 const app = express()
 const port = 3000
@@ -15,11 +17,25 @@ app.get('/detail', (req, res) => {
 })
 
 app.get('/login', (req, res) => {
-  res.send('login')
+  res.render('login')
 })
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 app.use('/', (req, res) => {
-    res.send('404')
+    res.send('404');
+    res.status(404);
 })
 
 app.listen(port, () => {
