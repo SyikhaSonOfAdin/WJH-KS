@@ -6,11 +6,11 @@ router.post('/login', (req, res) => {
     const { email, password, remember } = req.body;
 
     if (email === 'syikhasmart@gmail.com' && password === 'syikhaakmal19') {
-        res.json({
+        res.status(200).json({
             login: 'success', 
         })
     } else {
-        res.json({
+        res.status(403).json({
             login: 'failed' 
         })
     }
