@@ -2,7 +2,6 @@
 async function user_validation() {
     const email = document.getElementById('email').value ;
     const password = document.getElementById('password').value ;
-    const remember = document.getElementById('remember').value ;
 
     try {
         const response = await fetch('/Model/login', {
@@ -10,7 +9,7 @@ async function user_validation() {
             headers: { 
                 'Content-Type': 'application/x-www-form-urlencoded',
             },
-            body : 'email=' + email + '&password=' + password + '&remember=' + remember
+            body : 'email=' + email + '&password=' + password
         })
         if (response.ok) {
             const data = await response.json()

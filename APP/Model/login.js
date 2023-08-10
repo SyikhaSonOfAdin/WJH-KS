@@ -1,19 +1,29 @@
 const express = require('express');
-const session = require('express-session');
 const { db_Connect } = require('./database-conf');
 
 const router = express.Router();
 
 router.post('/login', async (req, res) => {
-    const { email, password, remember } = req.body;
+    const { email, password } = req.body;
 
     try {
         const connecting = await db_Connect();
-        const [rows] = await connecting.query(`SELECT * FROM login WHERE email = '${email}'`);
+        const [rows] = await connecting.query(`SELECT * FROM user WHERE email = '${email}'`);
         
         if (rows.length > 0 && rows[0].password === password) {
             const username = rows[0].username;
-            req.session.user = username; 
+            const level = rows[0].level;
+            req.session.user = username;
+
+            res.cookie('username', username, {
+                maxAge: 604800,
+                httpOnly: true
+            });
+            res.cookie('level', level, {
+                maxAge: 604800,
+                httpOnly: true
+            });
+            
             res.status(200).json({
                 login: 'success', 
                 username

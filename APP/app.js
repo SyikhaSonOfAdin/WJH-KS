@@ -1,5 +1,6 @@
 const express = require('express');
 const session = require('express-session');
+const cookieParser = require('cookie-parser');
 const loginRouter = require('./Model/login')
 
 const path = require('path');
@@ -15,6 +16,15 @@ app.use(session({
   resave: false,
   saveUninitialized: true
 }));
+
+app.use(cookieParser());
+app.use((req, res, next) => {
+  if (req.cookies.username && req.cookies.level) {
+    req.session.user = req.cookies.username;
+    req.session.level = req.cookies.level;
+  }
+  next();
+});
 
 app.get('/', (req, res) => {
     const user = req.session.user ;
@@ -35,6 +45,8 @@ app.get('/login', (req, res) => {
   if (req.session.user) {
     req.session.destroy((err) => {
       if (err) throw err
+      res.clearCookie('username');
+      res.clearCookie('level');
       res.redirect('/');
     })
   } else {

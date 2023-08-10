@@ -5,7 +5,7 @@ async function db_Connect() {
         host: 'localhost', 
         user: 'root',      
         password: '', 
-        database: 'kokohsemesta'
+        database: 'welding_join_history_ks',
     });
       
     try {
