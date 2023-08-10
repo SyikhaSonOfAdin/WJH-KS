@@ -1,5 +1,5 @@
 const express = require('express');
-// const session = require('express-session');
+const session = require('express-session');
 const loginRouter = require('./Model/login')
 
 const path = require('path');
@@ -10,16 +10,36 @@ app.use(express.urlencoded({ extended: true }));
 app.set('view engine','ejs')
 app.use(express.static(path.join(__dirname, '')));
 
+app.use(session({
+  secret: 'WeldingJoinHistory-KokohSemesta', 
+  resave: false,
+  saveUninitialized: true
+}));
+
 app.get('/', (req, res) => {
-    res.render('home')
+    const user = req.session.user ;
+    res.render('home', {
+      user
+    })
 })
 
 app.get('/detail', (req, res) => {
-  res.send('Detail')
+  if (req.session.user) {
+    res.send('Detail')
+  } else {
+    res.redirect('/login')
+  }
 })
 
 app.get('/login', (req, res) => {
-  res.render('login')
+  if (req.session.user) {
+    req.session.destroy((err) => {
+      if (err) throw err
+      res.redirect('/');
+    })
+  } else {
+    res.render('login')
+  }
 })
 
 app.use('/Model', loginRouter) ;
@@ -33,10 +53,8 @@ app.use('/Model', loginRouter) ;
 
 
 
-
-
 app.use('/', (req, res) => {
-    res.status(404).send('404 Not Found') ;
+    res.status(404).render('notFound') ;
 })
 
 app.listen(port, () => {

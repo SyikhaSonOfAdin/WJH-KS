@@ -25,14 +25,21 @@
                 <h1 class="text-[14px] md:text-[24px] font-extrabold text-gray-800">HEIN PROJECT</h1>
             </div>
             <div class="flex">
+                <% if (user) { %>
                 <a href="/detail" id="login"
                     class="text-xs text-gray-700 uppercase border font-bold mx-3 py-[5px] px-[15px] bg-white hover:bg-neutral-100 rounded flex items-center">
                     Detail
                 </a>
                 <a href="/login" id="login"
                     class="text-xs text-gray-700 uppercase border font-bold mx-3 py-[5px] px-[15px] bg-white hover:bg-neutral-100 rounded flex items-center">
+                    <%= user %>
+                </a>
+                <% } else { %>
+                <a href="/login" id="login"
+                    class="text-xs text-gray-700 uppercase border font-bold mx-3 py-[5px] px-[15px] bg-white hover:bg-neutral-100 rounded flex items-center">
                     Login
                 </a>
+                <% } %>
             </div>
         </div>
     </div>
