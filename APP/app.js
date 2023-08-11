@@ -18,6 +18,10 @@ app.use(session({
   saveUninitialized: true
 }));
 
+/*
+CHECK THE COOKIE EXIST OR NOT,
+IF EXIST SET THE SESSION AND IF NOT EXIST REDIRECT TO HOME PAGE
+*/
 app.use(cookieParser());
 app.use(async (req, res, next) => {
   if (req.cookies.username && req.cookies.level) {
@@ -28,6 +32,7 @@ app.use(async (req, res, next) => {
   next();
 });
 
+// HOME PAGE RUTE :
 app.get('/', (req, res) => {
     const user = req.session.user ;
     res.render('home', {
@@ -35,6 +40,7 @@ app.get('/', (req, res) => {
     })
 })
 
+// DETAIL PAGE RUTE :
 app.get('/detail', (req, res) => {
   if (req.session.user) {
     res.send('Detail')
@@ -43,6 +49,7 @@ app.get('/detail', (req, res) => {
   }
 })
 
+// LOGIN PAGE RUTE :
 app.get('/login', (req, res) => {
   if (req.session.user) {
     req.session.destroy((err) => {
@@ -66,7 +73,7 @@ app.use('/Model', loginRouter) ;
 
 
 
-
+// NOT FOUND PAGE 
 app.use('/', (req, res) => {
     res.status(404).render('notFound') ;
 })
