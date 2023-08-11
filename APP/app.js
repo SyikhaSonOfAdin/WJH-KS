@@ -4,6 +4,7 @@ const cookieParser = require('cookie-parser');
 const loginRouter = require('./Model/login')
 
 const path = require('path');
+const { get_Username } = require('./Model/function');
 const app = express()
 const port = 3000
 
@@ -18,10 +19,11 @@ app.use(session({
 }));
 
 app.use(cookieParser());
-app.use((req, res, next) => {
+app.use(async (req, res, next) => {
   if (req.cookies.username && req.cookies.level) {
-    req.session.user = req.cookies.username;
-    req.session.level = req.cookies.level;
+    const dataUser = await get_Username(req.cookies.username)
+    req.session.user = dataUser.username;
+    req.session.level = dataUser.level;
   }
   next();
 });
