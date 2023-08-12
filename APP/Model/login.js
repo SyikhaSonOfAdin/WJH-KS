@@ -1,8 +1,9 @@
 const express = require('express');
 const { db_Connect } = require('./database-conf');
-const { sha256 } = require('./function');
+const { Login } = require('./function');
 
 const router = express.Router();
+const loginInstances = new Login();
 
 router.post('/login', async (req, res) => {
     const { email, password } = req.body;
@@ -12,8 +13,8 @@ router.post('/login', async (req, res) => {
         const [rows] = await connecting.query(`SELECT * FROM user WHERE email = '${email}'`);
         
         if (rows.length > 0 && rows[0].password === password) {
-            const username = sha256(rows[0].username);
-            const level = sha256(rows[0].level);
+            const username = loginInstances.sha256(rows[0].username);
+            const level = loginInstances.sha256(rows[0].level);
 
             res.cookie('username', username, {
                 maxAge: 604800,

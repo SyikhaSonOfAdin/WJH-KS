@@ -4,7 +4,9 @@ const cookieParser = require('cookie-parser');
 const loginRouter = require('./Model/login')
 
 const path = require('path');
-const { get_Username } = require('./Model/function');
+const { Login } = require('./Model/function');
+
+const loginInstances = new Login() ;
 const app = express()
 const port = 3000
 
@@ -25,7 +27,7 @@ IF EXIST SET THE SESSION AND IF NOT EXIST REDIRECT TO HOME PAGE
 app.use(cookieParser());
 app.use(async (req, res, next) => {
   if (req.cookies.username && req.cookies.level) {
-    const dataUser = await get_Username(req.cookies.username)
+    const dataUser = await loginInstances.get_Username(req.cookies.username) ;
     req.session.user = dataUser.username;
     req.session.level = dataUser.level;
   }
