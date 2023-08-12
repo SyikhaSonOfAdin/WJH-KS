@@ -1,5 +1,6 @@
 const mysql = require('mysql2/promise');
 
+// Connect to the database
 async function db_Connect() {
     const connection = await mysql.createConnection({
         host: 'localhost', 
@@ -11,10 +12,10 @@ async function db_Connect() {
     try {
         await connection.connect();
         console.log('Connected to Database');
-        return connection; // Kembalikan objek koneksi
+        return connection; // this function will return connection
     } catch (error) {
         console.error('Error connecting to Database:', error.message);
-        throw error; // Lempar kembali error untuk penanganan lebih lanjut
+        throw error; 
     }
 }
 

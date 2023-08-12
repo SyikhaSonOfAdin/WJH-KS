@@ -9,10 +9,12 @@ router.post('/login', async (req, res) => {
     const { email, password } = req.body;
 
     try {
+        // Make connections
         const connecting = await db_Connect();
         const [rows] = await connecting.query(`SELECT * FROM user WHERE email = '${email}'`);
         
         if (rows.length > 0 && rows[0].password === password) {
+            // Hashed the cookies value
             const username = loginInstances.sha256(rows[0].username);
             const level = loginInstances.sha256(rows[0].level);
 
