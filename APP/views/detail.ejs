@@ -13,31 +13,29 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,700&family=Days+One&family=Inter:wght@400;700;800;900&family=Poppins:wght@100;200;300;400;500;700&display=swap"
         rel="stylesheet" />
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script defer src="https://unpkg.com/aos@2.3.1/dist/aos.js" onload="if (AOS) {AOS.init();}"></script>
 </head>
 
 <body>
     <!-- NAVBAR -->
-    <div class="w-full h-max flex items-center justify-center shadow-lg" data-aos="slide-down">
+    <div class="w-full h-max flex items-center justify-center shadow-lg">
         <div class="w-[90%] flex items-center justify-between">
             <div class="flex items-center">
-                <img src="/Assets/Logo_single.png" alt="Kokoh Semesta" class="w-[30px] h-[34.62px] md:w-[50px] md:h-[54.62px] mx-3 my-5" data-aos="slide-down" data-aos-delay="100"/>
-                <h1 class="hidden md:block text-[24px] font-extrabold text-gray-800" data-aos="slide-down" data-aos-delay="200">WELDING JOIN HISTORY :</h1>
-                <h1 class="text-[14px] md:text-[24px] font-extrabold text-gray-800" data-aos="slide-down" data-aos-delay="300">HEIN PROJECT</h1>
+                <img src="/Assets/Logo_single.png" alt="Kokoh Semesta" class="w-[30px] h-[34.62px] md:w-[50px] md:h-[54.62px] mx-3 my-5"/>
+                <h1 class="hidden md:block text-[24px] font-extrabold text-gray-800">WELDING JOIN HISTORY :</h1>
+                <h1 class="text-[14px] md:text-[24px] font-extrabold text-gray-800">HEIN PROJECT</h1>
             </div>
             <div class="flex">
                 <% if (user) { %>
-                <a href="/detail" id="login" data-aos="slide-down" data-aos-delay="400"
+                <a href="/detail" id="login"
                     class="text-xs text-gray-700 uppercase border font-bold mx-3 py-[5px] px-[15px] bg-white hover:bg-neutral-100 rounded flex items-center">
-                    Detail
+                    Home
                 </a>
-                <a href="/login" id="login" data-aos="slide-down" data-aos-delay="500"
+                <a href="/login" id="login"
                     class="text-xs text-gray-700 uppercase border font-bold mx-3 py-[5px] px-[15px] bg-white hover:bg-neutral-100 rounded flex items-center">
                     <%= user %>
                 </a>
                 <% } else { %>
-                <a href="/login" id="login" data-aos="slide-down" data-aos-delay="500" 
+                <a href="/login" id="login"
                     class="text-xs text-gray-700 uppercase border font-bold mx-3 py-[5px] px-[15px] bg-white hover:bg-neutral-100 rounded flex items-center">
                     Login
                 </a>
