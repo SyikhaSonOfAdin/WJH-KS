@@ -13,6 +13,8 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,700&family=Days+One&family=Inter:wght@400;700;800;900&family=Poppins:wght@100;200;300;400;500;700&display=swap"
         rel="stylesheet" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script defer src="https://unpkg.com/aos@2.3.1/dist/aos.js" onload="if (AOS) {AOS.init();}"></script>
 </head>
 
 <body>
@@ -20,26 +22,27 @@
     <div class="w-full h-max flex items-center justify-center shadow-lg">
         <div class="w-[90%] flex items-center justify-between">
             <div class="flex items-center">
-                <img src="/Assets/Logo_single.png" alt="Kokoh Semesta" class="w-[30px] h-[34.62px] md:w-[50px] md:h-[54.62px] mx-3 my-5"/>
+                <img src="/Assets/Logo_single.png" alt="Kokoh Semesta"
+                    class="w-[30px] h-[34.62px] md:w-[50px] md:h-[54.62px] mx-3 my-5" />
                 <h1 class="hidden md:block text-[24px] font-extrabold text-gray-800">WELDING JOIN HISTORY :</h1>
                 <h1 class="text-[14px] md:text-[24px] font-extrabold text-gray-800">HEIN PROJECT</h1>
             </div>
             <div class="flex">
                 <% if (user) { %>
-                <a href="/detail" id="login"
-                    class="text-xs text-gray-700 uppercase border font-bold mx-3 py-[5px] px-[15px] bg-white hover:bg-neutral-100 rounded flex items-center">
-                    Home
-                </a>
-                <a href="/login" id="login"
-                    class="text-xs text-gray-700 uppercase border font-bold mx-3 py-[5px] px-[15px] bg-white hover:bg-neutral-100 rounded flex items-center">
-                    <%= user %>
-                </a>
-                <% } else { %>
-                <a href="/login" id="login"
-                    class="text-xs text-gray-700 uppercase border font-bold mx-3 py-[5px] px-[15px] bg-white hover:bg-neutral-100 rounded flex items-center">
-                    Login
-                </a>
-                <% } %>
+                    <a href="/" id="login" data-swup
+                        class="text-xs text-gray-700 uppercase border font-bold mx-3 py-[5px] px-[15px] bg-white hover:bg-neutral-100 rounded flex items-center">
+                        Home
+                    </a>
+                    <a href="/login" id="login"
+                        class="text-xs text-gray-700 uppercase border font-bold mx-3 py-[5px] px-[15px] bg-white hover:bg-neutral-100 rounded flex items-center">
+                        <%= user %>
+                    </a>
+                    <% } else { %>
+                        <a href="/login" id="login"
+                            class="text-xs text-gray-700 uppercase border font-bold mx-3 py-[5px] px-[15px] bg-white hover:bg-neutral-100 rounded flex items-center">
+                            Login
+                        </a>
+                        <% } %>
             </div>
         </div>
     </div>
@@ -61,7 +64,16 @@
     </form>
 
     <!-- CONTENT BODY -->
-    <div id="main" class="w-[90%] md:w-[85%] min-h-screen overflow-x-auto mx-2 my-4 rounded-lg"></div>
+    <div id="swup" class="w-[90%] md:w-[85%] min-h-screen overflow-x-auto mx-2 my-4 rounded-lg transition-text-focus-in transition-text-blur-out">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem reprehenderit sunt repellat quam illum
+        itaque nihil autem sapiente, odio soluta eligendi, minus quos est libero error labore? Tempora ex, ipsum quos
+        blanditiis laboriosam temporibus asperiores. Aliquam inventore ab quis non obcaecati. Ea ab sequi asperiores
+        ratione, sunt quae saepe voluptates rem? Voluptas, quam. Rerum, quis! Vitae ipsum vero quisquam accusamus.
+        <a href="/" id="login"
+        class="text-xs text-gray-700 uppercase border font-bold mx-3 py-[5px] px-[15px] bg-white hover:bg-neutral-100 rounded flex items-center">
+        Home
+    </a>
+    </div>
 
     <!-- FOOTER -->
     <div class="w-full mt-12 flex flex-col items-center justify-center h-[200px] bg-[#2E3192]">
@@ -69,7 +81,7 @@
             Copyright © 2023 Syikha Creative Production. All Right Reserved
         </h1>
     </div>
-    <script src="/Controller/home-Controller.js"></script>
+    <script type="module" src="/Controller/home-Controller.js"></script>
 </body>
 
 </html>

@@ -1,3 +1,6 @@
+import Swup from 'https://unpkg.com/swup@4?module';
+const swup = new Swup();
+
 // Get element where content is located
 const body = document.getElementById('main') ;
 

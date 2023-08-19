@@ -44,8 +44,11 @@ app.get('/', (req, res) => {
 
 // DETAIL PAGE RUTE :
 app.get('/detail', (req, res) => {
-  if (req.session.user) {
-    res.send('Detail')
+  const user = req.session.user ;
+  if (user) {
+    res.render('detail', {
+      user
+    }) ;
   } else {
     res.redirect('/login')
   }
